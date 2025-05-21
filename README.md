@@ -132,10 +132,9 @@ elif command.startswith("DELETE"):
 
 Kode ini memastikan client bisa melakukan encode base64 sebelum mengirim ke server untuk operasi UPLOAD, dan cukup mengirim nama file saat melakukan DELETE. Client ditambahkan kemampuan menangani perintah UPLOAD dan DELETE. Untuk UPLOAD, client akan membaca isi file dari disk, meng-encode ke base64, lalu mengirimkan string UPLOAD <filename> <base64-content>. Untuk DELETE, cukup mengirimkan perintah DELETE <filename>. Dengan perintah ini, user dapat secara langsung mengelola file dari sisi client melalui terminal.
 
-3. Penjelasan Modifikasi Client dan Server
+3. Penjelasan Modifikasi Client dan Server <br>
 <img width="574" alt="Screenshot 2025-05-21 at 19 29 53" src="https://github.com/user-attachments/assets/6b311b49-c684-4278-859f-ab4ccb5dcf1e" /> <br>
 Pada gambar ini, terlihat proses client melakukan upload file bernama test.txt. File berhasil dibaca dan diencode base64 lalu dikirim ke server. Server merespon dengan pesan konfirmasi bahwa file berhasil diunggah.
-<br>
 **Upload**: Pada saat operasi upload dilakukan, pengguna memasukkan perintah UPLOAD diikuti dengan nama file yang ingin diunggah. Program client kemudian membuka file tersebut, membacanya sebagai data biner, dan mengubahnya menjadi format base64. Setelah itu, perintah dikirim ke server dengan format UPLOAD <nama_file> <isi_file_base64>. Server menerima data ini, melakukan decoding base64 untuk mendapatkan data asli, kemudian menyimpannya ke dalam direktori file server. Server akan merespons dengan JSON yang menandakan status operasi, yaitu OK jika file berhasil disimpan, atau ERROR jika terjadi masalah. Proses ini memungkinkan transfer file biner dengan aman dan konsisten melalui protokol berbasis teks.
 
 
